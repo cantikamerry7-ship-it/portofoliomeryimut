@@ -1,0 +1,427 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mery | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- BACKGROUND ANIMATION -->
+<div class="background">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">Mery<span>.</span></div>
+
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skill">Skill</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+</header>
+
+
+<!-- HOME -->
+<section class="home section" id="home">
+
+    <div class="home-content">
+
+        <div class="profile-wrapper">
+            <div class="profile-ring"></div>
+
+            <!-- GANTI FOTO DI SINI -->
+            <img src="foto.jpg" alt="Foto Mery" class="profile-img">
+        </div>
+
+        <p class="hello">Hello, I'm</p>
+
+        <h1>Mery <span>Cantika</span></h1>
+
+        <h2>
+            I'm a <span id="typing"></span>
+        </h2>
+
+        <p class="home-text">
+            Saya seorang pelajar Rekayasa Perangkat Lunak
+            yang tertarik dengan dunia website, desain,
+            dan teknologi.
+        </p>
+
+        <div class="home-buttons">
+            <a href="#project" class="btn primary">
+                Lihat Project
+            </a>
+
+            <a href="#contact" class="btn secondary">
+                Hubungi Saya
+            </a>
+        </div>
+
+        <div class="social">
+            <a href="https://github.com/" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://instagram.com/cntkaamry"
+               target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="mailto:cantikamerry7@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        <span></span>
+        Scroll Down
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+
+    <div class="section-title">
+        <p>About Me</p>
+        <h2>Tentang <span>Saya</span></h2>
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-card reveal">
+            <i class="fa-solid fa-user"></i>
+
+            <h3>Siapa Saya?</h3>
+
+            <p>
+                Halo! Saya Mery Cantika, seorang pelajar
+                jurusan Rekayasa Perangkat Lunak yang
+                sedang belajar membuat website dan
+                mengembangkan kemampuan di bidang teknologi.
+            </p>
+        </div>
+
+
+        <div class="about-card reveal">
+            <i class="fa-solid fa-code"></i>
+
+            <h3>Yang Saya Pelajari</h3>
+
+            <p>
+                Saya mempelajari HTML, CSS, JavaScript,
+                desain antarmuka, GitHub serta dasar-dasar
+                pengembangan website.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATUS -->
+<section class="status section">
+
+    <div class="section-title">
+        <p>My Information</p>
+        <h2>Status <span>Saya</span></h2>
+    </div>
+
+    <div class="status-grid">
+
+        <div class="status-card reveal">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Status</h3>
+            <p>Pelajar SMK</p>
+        </div>
+
+        <div class="status-card reveal">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Jurusan</h3>
+            <p>Rekayasa Perangkat Lunak</p>
+        </div>
+
+        <div class="status-card reveal">
+            <i class="fa-solid fa-palette"></i>
+            <h3>Bidang</h3>
+            <p>Web Development</p>
+        </div>
+
+        <div class="status-card reveal">
+            <i class="fa-solid fa-rocket"></i>
+            <h3>Saat Ini</h3>
+            <p>Belajar & Membuat Project</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILL -->
+<section class="skill section" id="skill">
+
+    <div class="section-title">
+        <p>My Ability</p>
+        <h2>My <span>Skills</span></h2>
+    </div>
+
+    <div class="skill-grid">
+
+        <div class="skill-card reveal">
+            <div class="skill-icon html">
+                <i class="fa-brands fa-html5"></i>
+            </div>
+
+            <h3>HTML</h3>
+            <p>Struktur website</p>
+
+            <div class="progress">
+                <span style="width:85%"></span>
+            </div>
+        </div>
+
+
+        <div class="skill-card reveal">
+            <div class="skill-icon css">
+                <i class="fa-brands fa-css3-alt"></i>
+            </div>
+
+            <h3>CSS</h3>
+            <p>Design & responsive</p>
+
+            <div class="progress">
+                <span style="width:80%"></span>
+            </div>
+        </div>
+
+
+        <div class="skill-card reveal">
+            <div class="skill-icon js">
+                <i class="fa-brands fa-js"></i>
+            </div>
+
+            <h3>JavaScript</h3>
+            <p>Interaksi website</p>
+
+            <div class="progress">
+                <span style="width:65%"></span>
+            </div>
+        </div>
+
+
+        <div class="skill-card reveal">
+            <div class="skill-icon github">
+                <i class="fa-brands fa-github"></i>
+            </div>
+
+            <h3>GitHub</h3>
+            <p>Hosting & repository</p>
+
+            <div class="progress">
+                <span style="width:70%"></span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECT -->
+<section class="project section" id="project">
+
+    <div class="section-title">
+        <p>My Work</p>
+        <h2>My <span>Projects</span></h2>
+    </div>
+
+    <div class="project-grid">
+
+        <div class="project-card reveal">
+
+            <div class="project-image">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <div class="project-content">
+
+                <span>Website</span>
+
+                <h3>Personal Portfolio</h3>
+
+                <p>
+                    Website portfolio pribadi yang
+                    menampilkan informasi, skill,
+                    dan project saya.
+                </p>
+
+                <a href="#" class="project-link">
+                    Lihat Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="project-card reveal">
+
+            <div class="project-image second">
+                <i class="fa-solid fa-house"></i>
+            </div>
+
+            <div class="project-content">
+
+                <span>Website</span>
+
+                <h3>Website Desa</h3>
+
+                <p>
+                    Website sederhana yang memperkenalkan
+                    keindahan dan informasi sebuah desa.
+                </p>
+
+                <a href="#" class="project-link">
+                    Lihat Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="project-card reveal">
+
+            <div class="project-image third">
+                <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+
+            <div class="project-content">
+
+                <span>Design</span>
+
+                <h3>UI Design</h3>
+
+                <p>
+                    Konsep tampilan antarmuka sederhana
+                    dengan fokus pada kenyamanan pengguna.
+                </p>
+
+                <a href="#" class="project-link">
+                    Lihat Project
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+
+    <div class="section-title">
+        <p>Get In Touch</p>
+        <h2>Contact <span>Me</span></h2>
+    </div>
+
+    <div class="contact-box reveal">
+
+        <div class="contact-icon">
+            <i class="fa-solid fa-paper-plane"></i>
+        </div>
+
+        <h2>Mari Terhubung!</h2>
+
+        <p>
+            Jika ingin menghubungi saya,
+            silakan melalui email atau media sosial.
+        </p>
+
+        <a href="mailto:cantikamerry7@gmail.com"
+           class="btn primary">
+            <i class="fa-solid fa-envelope"></i>
+            Email Saya
+        </a>
+
+        <div class="contact-social">
+
+            <a href="https://github.com/" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://instagram.com/cntkaamry"
+               target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 <span>Mery Cantika</span>.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
