@@ -1,32 +1,34 @@
 script.js
 
-/* =========================
-   MENU HAMBURGER
-========================= */
+/* =================================
+   HAMBURGER MENU
+================================= */
 
 const menuBtn = document.getElementById("menuBtn");
 const navMenu = document.getElementById("navMenu");
 
-menuBtn.addEventListener("click", () => {
+if (menuBtn && navMenu) {
 
-    navMenu.classList.toggle("show");
+    menuBtn.addEventListener("click", () => {
 
-    const icon = menuBtn.querySelector("i");
+        navMenu.classList.toggle("show");
 
-    if (navMenu.classList.contains("show")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-xmark");
-    } else {
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-    }
+        const icon = menuBtn.querySelector("i");
 
-});
+        if (navMenu.classList.contains("show")) {
+            icon.classList.replace("fa-bars", "fa-xmark");
+        } else {
+            icon.classList.replace("fa-xmark", "fa-bars");
+        }
+
+    });
+
+}
 
 
-/* =========================
-   CLOSE MENU
-========================= */
+/* =================================
+   CLOSE MENU AFTER CLICK
+================================= */
 
 document.querySelectorAll("nav a").forEach(link => {
 
@@ -34,124 +36,181 @@ document.querySelectorAll("nav a").forEach(link => {
 
         navMenu.classList.remove("show");
 
-        const icon = menuBtn.querySelector("i");
+        const icon = menuBtn?.querySelector("i");
 
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
+        if (icon) {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        }
 
     });
 
 });
 
 
-/* =========================
+/* =================================
    TYPING EFFECT
-========================= */
+================================= */
 
-const typingElement = document.getElementById("typing");
+const typing = document.getElementById("typing");
 
-const texts = [
+const words = [
     "Web Developer",
     "RPL Student",
     "UI Designer",
     "Creative Learner"
 ];
 
-let textIndex = 0;
-let charIndex = 0;
+let wordIndex = 0;
+let letterIndex = 0;
 let deleting = false;
 
-function typingEffect() {
+function typeEffect() {
 
-    const currentText = texts[textIndex];
+    if (!typing) return;
+
+    const word = words[wordIndex];
 
     if (!deleting) {
 
-        typingElement.textContent =
-            currentText.substring(0, charIndex + 1);
+        typing.textContent =
+            word.substring(0, letterIndex + 1);
 
-        charIndex++;
+        letterIndex++;
 
-        if (charIndex === currentText.length) {
+        if (letterIndex === word.length) {
 
             deleting = true;
 
-            setTimeout(typingEffect, 1500);
-
+            setTimeout(typeEffect, 1500);
             return;
         }
 
     } else {
 
-        typingElement.textContent =
-            currentText.substring(0, charIndex - 1);
+        typing.textContent =
+            word.substring(0, letterIndex - 1);
 
-        charIndex--;
+        letterIndex--;
 
-        if (charIndex === 0) {
+        if (letterIndex === 0) {
 
             deleting = false;
 
-            textIndex++;
+            wordIndex++;
 
-            if (textIndex >= texts.length) {
-                textIndex = 0;
+            if (wordIndex >= words.length) {
+                wordIndex = 0;
             }
+
         }
+
     }
 
     setTimeout(
-        typingEffect,
-        deleting ? 60 : 100
+        typeEffect,
+        deleting ? 55 : 100
     );
 }
 
-typingEffect();
+typeEffect();
 
 
-/* =========================
+/* =================================
    SCROLL REVEAL
-========================= */
+================================= */
 
-const reveals = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-    reveals.forEach(element => {
+            entries.forEach(entry => {
 
-        const windowHeight = window.innerHeight;
+                if (entry.isIntersecting) {
 
-        const elementTop =
-            element.getBoundingClientRect().top;
+                    entry.target.classList.add("show");
 
-        if (elementTop < windowHeight - 80) {
+                    observer.unobserve(entry.target);
 
-            element.classList.add("show");
+                }
 
+            });
+
+        },
+        {
+            threshold: 0.15
         }
+    );
 
-    });
-
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-revealOnScroll();
+revealElements.forEach(element => {
+    observer.observe(element);
+});
 
 
-/* =========================
+/* =================================
+   SKILL PROGRESS ANIMATION
+================================= */
+
+const skillCards =
+    document.querySelectorAll(".skill-card");
+
+const skillObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    const progress =
+                        entry.target.querySelector(".progress span");
+
+                    if (progress) {
+
+                        const width =
+                            progress.getAttribute("style");
+
+                        progress.style.width =
+                            width.replace("width:", "")
+                                 .replace(";", "")
+                                 .trim();
+
+                    }
+
+                    skillObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.3
+        }
+    );
+
+skillCards.forEach(card => {
+    skillObserver.observe(card);
+});
+
+
+/* =================================
    BACK TO TOP
-========================= */
+================================= */
 
-const topBtn = document.getElementById("topBtn");
+const topBtn =
+    document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 400) {
+    if (!topBtn) return;
+
+    if (window.scrollY > 500) {
 
         topBtn.style.display = "flex";
-        topBtn.style.alignItems = "center";
-        topBtn.style.justifyContent = "center";
 
     } else {
 
@@ -161,22 +220,29 @@ window.addEventListener("scroll", () => {
 
 });
 
-topBtn.addEventListener("click", () => {
+if (topBtn) {
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    topBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
     });
 
-});
+}
 
 
-/* =========================
+/* =================================
    ACTIVE NAVIGATION
-========================= */
+================================= */
 
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll("nav a");
 
 window.addEventListener("scroll", () => {
 
@@ -184,15 +250,20 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.offsetHeight;
+        const sectionTop =
+            section.offsetTop - 180;
+
+        const sectionHeight =
+            section.offsetHeight;
 
         if (
             window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
+            window.scrollY <
+            sectionTop + sectionHeight
         ) {
 
-            current = section.getAttribute("id");
+            current =
+                section.getAttribute("id");
 
         }
 
@@ -203,7 +274,8 @@ window.addEventListener("scroll", () => {
         link.classList.remove("active");
 
         if (
-            link.getAttribute("href") === "#" + current
+            link.getAttribute("href") ===
+            "#" + current
         ) {
 
             link.classList.add("active");
@@ -215,23 +287,117 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* =========================
-   MOUSE PARALLAX BACKGROUND
-========================= */
+/* =================================
+   MOUSE PARALLAX
+================================= */
 
-document.addEventListener("mousemove", (event) => {
+const particles =
+    document.querySelectorAll(".background span");
 
-    const x = (event.clientX / window.innerWidth - 0.5) * 20;
-    const y = (event.clientY / window.innerHeight - 0.5) * 20;
+document.addEventListener("mousemove", event => {
 
-    document.querySelectorAll(".background span")
-        .forEach((bubble, index) => {
+    const x =
+        (event.clientX / window.innerWidth - 0.5);
 
-            const speed = (index + 1) * 0.3;
+    const y =
+        (event.clientY / window.innerHeight - 0.5);
 
-            bubble.style.transform =
-                `translate(${x * speed}px, ${y * speed}px)`;
+    particles.forEach((particle, index) => {
 
-        });
+        const speed = (index + 1) * 5;
+
+        particle.style.marginLeft =
+            `${x * speed}px`;
+
+        particle.style.marginTop =
+            `${y * speed}px`;
+
+    });
+
+});
+
+
+/* =================================
+   PROJECT CARD TILT
+================================= */
+
+const cards =
+    document.querySelectorAll(".project-card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        if (window.innerWidth < 700) return;
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -4;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 4;
+
+        card.style.transform =
+            `perspective(800px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+    });
+
+});
+
+
+/* =================================
+   PARALLAX PROFILE
+================================= */
+
+const profile =
+    document.querySelector(".profile-wrapper");
+
+window.addEventListener("scroll", () => {
+
+    if (!profile) return;
+
+    if (window.innerWidth > 700) {
+
+        const scroll =
+            window.scrollY;
+
+        profile.style.transform =
+            `translateY(${scroll * 0.08}px)`;
+
+    }
+
+});
+
+
+/* =================================
+   PAGE LOADED
+================================= */
+
+window.addEventListener("load", () => {
+
+    document.body.classList.add("loaded");
 
 });
