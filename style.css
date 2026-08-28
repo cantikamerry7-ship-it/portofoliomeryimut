@@ -860,7 +860,10 @@ footer span {
     }
 
     .menu-btn {
-        display: block;
+    display: block;
+    position: relative;
+    z-index: 1001;
+    cursor: pointer;
     }
 
     nav {
