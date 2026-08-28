@@ -9,23 +9,31 @@ const navMenu = document.getElementById("navMenu");
 
 if (menuBtn && navMenu) {
 
-    menuBtn.addEventListener("click", () => {
+    menuBtn.addEventListener("click", function () {
 
         navMenu.classList.toggle("show");
 
         const icon = menuBtn.querySelector("i");
 
         if (navMenu.classList.contains("show")) {
-            icon.classList.replace("fa-bars", "fa-xmark");
+
+            if (icon) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            }
+
         } else {
-            icon.classList.replace("fa-xmark", "fa-bars");
+
+            if (icon) {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+
         }
 
     });
 
 }
-
-
 /* =================================
    CLOSE MENU AFTER CLICK
 ================================= */
