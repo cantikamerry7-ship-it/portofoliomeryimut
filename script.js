@@ -4,10 +4,12 @@ script.js
    HAMBURGER MENU
 ================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
+document.addEventListener("DOMContentLoaded", function () {
 
-if (menuBtn && navMenu) {
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+
+    if (!menuBtn || !navMenu) return;
 
     menuBtn.addEventListener("click", function () {
 
@@ -16,24 +18,16 @@ if (menuBtn && navMenu) {
         const icon = menuBtn.querySelector("i");
 
         if (navMenu.classList.contains("show")) {
-
-            if (icon) {
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
-            }
-
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
         } else {
-
-            if (icon) {
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-            }
-
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
         }
 
     });
 
-}
+});
 /* =================================
    CLOSE MENU AFTER CLICK
 ================================= */
