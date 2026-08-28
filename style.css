@@ -745,6 +745,36 @@ nav a.active::after {
     animation: contactFloat 3s infinite ease-in-out;
 }
 
+.whatsapp-icon {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50%;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.whatsapp-icon:hover {
+    color: #2196ff;
+    border-color: #2196ff;
+    transform: translateY(-5px);
+}
+
+@keyframes contactFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 @keyframes contactFloat {
     0%,100% {
         transform: translateY(0);
